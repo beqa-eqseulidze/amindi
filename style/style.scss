@@ -1,0 +1,32 @@
+@import "./font.scss";
+@font-face {
+    font-family:geofont;
+    src: url(../font/bpg_nino_mtavruli_bold.ttf);
+}
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+ul{
+     list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+   background-image: url(../img/bodybackground2.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   font-family:geofont;  
+  
+}
+
+@import "container-1";
+@import "container-2";
+@import "main";
+@import"container-3";
+@import "container-4";
+@import "container-5";
+
+

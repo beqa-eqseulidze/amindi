@@ -1,0 +1,79 @@
+@use "./font.scss";
+.container-5{
+    max-width:570px;
+    margin:0 auto;
+    padding:5px;
+    background-color: rgba(255, 255, 255, 0);
+    .search-bar{
+        display: none;
+    }
+    .parent{
+        background: white;
+        padding:5px;        
+        .daily-weather{
+            background-color: #eee;  
+            padding:5px;
+        }
+         h3{
+            margin: 5px 0;
+         }
+        .cards{        
+            display:flex;
+            flex-wrap:wrap;
+            margin-top:10px;
+            width:100%;
+            justify-content:space-between;       
+        }
+    
+         .card{
+             font-size:10px;
+             width:18%;
+             margin-top:10px;
+    
+            
+            *{
+                margin: 5px 0;
+                text-align: center;
+    
+            }
+            .degree{
+                font-size:15px;
+            }
+         }
+         .card:hover{
+            background-color:white;
+         }
+         img{
+            width: 32px; ;
+         }
+    
+         #map { 
+            height: 250px;
+            margin:10px auto
+        }
+    
+    }
+   
+}
+
+@media only screen and (min-width: 768px) {
+    .container-5{
+        width:75%;
+        padding:0;
+        margin: 0;
+        .search-bar{
+            height:40px;
+            display: block;
+            background: rgba(25,55,92,0.75);
+        }
+        .parent{
+            
+
+          
+
+        }
+    }
+
+  }
+
+
