@@ -8,7 +8,7 @@
     height:50px;    
     margin:0 auto;    
     position: relative;
-    .choose-sity , .search-city{       
+    .choose-city , .search-city{       
         background-color:rgba(0, 0, 0, 0.199);
         font-size:12px;
         height:30px;
@@ -22,7 +22,7 @@
         border-radius:5px;       
         position:relative;
         }
-        .choose-sity{
+        .choose-city{
             cursor: pointer;
         }
         .arrow{
@@ -56,11 +56,11 @@
             top:50%;
             cursor: pointer;
         }
-        .sity-list{
+        .city-list{
             position: absolute;            
-            width: 99.7%;
-            top: 41px;
-            left: 100px;
+            width:100%;
+            top: 44px;
+            left:0;
             background-color: rgb(33, 115, 236);
             z-index: 9999;
             display: flex;
@@ -69,14 +69,17 @@
             gap:10px;
             height:0;
             overflow: hidden;
+
              .list{
                 padding:0 10%;
                 text-transform:uppercase;
                 font-family:geofont;
-                font-size: 10px;
+                // font-size: 10px;
                 line-height:30px;
                 text-align: center;
                 width:35%;
+                padding:0 8%;
+                margin:0 5%;
                 display: flex;
                 justify-content: space-between;
                 border-radius:10px;
@@ -88,6 +91,9 @@
                 }
             }
         }
+        .open{
+            height:auto;
+        }
     
 }
 
@@ -96,8 +102,30 @@
         top: 45px;
         left: -44px;
         width: 282px;
-        .choose-sity , .search-city{ 
+        .choose-city , .search-city{ 
         background-color: rgb(33, 115, 236);
     }
+    .city-list{
+        left: -2px;
+        width: 561px;
+    }
+    }
+}
+@media only screen and (min-width: 990px) {
+    .container-3 {
+        left:-100px;
+        .city-list{
+            left: -2px;
+            width: 728px;
+        }
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .container-3 {
+        left:-173px;
+        .city-list{
+           width: 946px;
+        }
     }
 }

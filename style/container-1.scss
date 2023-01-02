@@ -8,60 +8,59 @@
     display: flex;
     justify-content:center;
 
-
     .navbar{
         width:100%;
         height:100%;  
-        font-size:15px;
+        // font-size:15px;
         background-color: black;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        // position:relative;
+        position:relative;
         background-color: rgba(25,55,92,.5);
         background: rgba(25,55,92,.75);
-        background-position: 12px -253px;
-    
+        background-position: 12px -253px;    
         
         img{
             height:80%;
             margin-left:5%;
             cursor: pointer;
-        }
-        
-        .choose-lan{        
-            width:130px;
+        }        
+        .choose-lan{   
+            color:white;     
+            width:145px;
             height:30px;        
             background-color: rgb(33, 115, 236);
             border-radius: 5px;
-            position:relative;
+            outline: none;
+            border: 1px solid black;
+            // position:relative;
             position:absolute;
             right:20%;
             top:10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            overflow: hidden;             
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: center;
+            // overflow: hidden;             
             
-            p{
+            option{
                 width:100%;
-                height:30px;
-                font-size: 12px;
-                display: flex;
-                align-items: center;
+                height:30px;                
+                // font-size: 12px;
+                // display: flex;
+                // align-items: center;
                 cursor: pointer;
 
                 span{
                     margin-top: 3px;
                 }
             }
-            p:hover{
-                transform: scale(1.1);
-            }
-            p:last-child{
-    
-                display:none;
-            }
+            // option:hover{
+            //     transform: scale(1.1);
+            // }
+            // p:last-child{    
+            //     display:none;
+            // }
     
             img{
                 width:22px;
@@ -70,14 +69,14 @@
             } 
         }
     
-        .choose-lan:hover{
-            height: 60px;    
-            z-index: 1;   
-        }
+        // .choose-lan:hover{
+        //     height: 60px;    
+        //     z-index: 1;   
+        // }
     
-        .choose-lan:hover p:last-child{
-            display:flex;
-        }
+        // .choose-lan:hover p:last-child{
+        //     display:flex;
+        // }
         
         .arrow{
             border-left: 5px solid transparent;
@@ -117,7 +116,7 @@
       
         .menu{
             width:100%;
-            font-size:0.9rem;
+            // font-size:0.9rem;
             position: absolute;
             z-index:999;
             top:50px;
@@ -137,7 +136,7 @@
         }   
         
         .menu:hover{
-           overflow: visible;
+        //   overflow: visible;
         }   
     
         .info{
@@ -177,6 +176,7 @@
   .container-1{
 
       .navbar{
+        position:initial;
   
           .choose-lan{
             position: relative;
@@ -184,6 +184,11 @@
             z-index: 100;
             left: 163px;
           }
+          .choose-lan:hover{
+            // top:191px;
+            // height: 60px;    
+            // z-index: 1;   
+        }
       }
   }
 }
@@ -204,8 +209,8 @@
                 position:initial; 
                 color:white;           
                 background: rgba(255, 255, 255, 0);   
-                height: 100%;
-                overflow: visible;
+                height: 100% !important;
+                overflow: visible !important;
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
@@ -230,7 +235,15 @@
                     cursor: pointer;
                 }
             }
-           
+           .choose-lan{           
+            left: 515px;
+            width:200px;
+          }
+          .choose-lan:hover{
+            // top:191px;
+            // height: 60px;    
+            // z-index: 1;   
+        }
         }
     }
 }
@@ -239,6 +252,10 @@
     .container-1{       
         .navbar{
            max-width:1260px;
+           .choose-lan{
+            left:560px;
+          
+           }
         }
     }
 }

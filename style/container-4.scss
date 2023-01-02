@@ -13,7 +13,6 @@
             text-align: center;
             color:white;
             font-weight: bold;
-            font-size: 35px;
             margin:10px auto;
         }
         >p{ 
@@ -48,7 +47,7 @@
         padding:0 15px 0 15px;
         text-align: center;
         h3{
-            text-align: left;
+            text-align: center;
         }
         >*{
             margin:15px auto;
@@ -63,8 +62,7 @@
             margin:0 30px;  
         }
         button{
-          font-family:geofont;          
-          font-size:12px;
+          font-family:geofont;   
           line-height:30px ;
           height: 30px;
           color:white;
@@ -76,6 +74,7 @@
         }
     }   
     .wind-focast{
+        width:100%;
         display:flex;
         .animation-fun{          
             position:relative;
@@ -93,7 +92,7 @@
                 width:60px;
                 height:60px;
                 position: absolute;
-                top:13px;
+                top:11px;
                 left:13px;
                 animation-name:fun;
                 animation-duration:700ms;
@@ -104,7 +103,7 @@
                 background-image: url(../img/bg-fun.png);
                 background-repeat: no-repeat;
                 background-position: center center;
-                width:35px;
+                width:35px;               
                 height:35px;
                 position: absolute;
                 top:40px;
@@ -120,7 +119,7 @@
                 100% {transform:rotate(360deg)}
               }
             }
-            >:last-child{            
+            >:last-child{                         
                 padding:15px 0 0 50px;
                 >*{
                     margin-top:5px;              
@@ -163,7 +162,6 @@
         }
         button{
             font-family:geofont;          
-            font-size:12px;
             line-height:30px ;
             height: 30px;
             color:white;
@@ -180,13 +178,10 @@
 
 @media only screen and (min-width: 768px) {
     .container-4{
-        width:26%;
+        max-width:25%;
         margin: 0;
         .curent-forcast{
-            h2{
-                font-size:30px;
-            }
-            .date{
+           .date{
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -205,14 +200,51 @@
                
             }
         }
-                
+        .wind-focast{
+            .first-fun{
+                left:11% !important;
+            }   
+            .last-fun{
+                left:36% !important;
+            }
 
-
+            >:last-child{
+                padding:15px 0 0 0; 
+            }
+        }
+    }
   }
-}
+                     
+  @media only screen and (min-width: 990px){
+      .container-4{
+          // max-width:25%;
+          width:25%;
 
+          .wind-focast{
+            .first-fun{
+                left:11% !important;
+            }   
+            .last-fun{
+                left:36% !important;
+            }
 
+            >:last-child{
+                padding:15px 0 0 0; 
+            }
+        }
+      }
+   }
+  
+   @media only screen and (min-width:1280px){
+      .container-4{
+        width:25%;               
+      }
+   }
+               
              
+
+
+
 
          
 

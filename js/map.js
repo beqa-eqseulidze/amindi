@@ -1,8 +1,8 @@
 let delay;
 sessionStorage.getItem('lat')? delay=0:delay=1000;
-setTimeout(function(){
+setTimeout(()=>{
     let lat=sessionStorage.getItem("lat");
-    let lon=sessionStorage.getItem("lon");   
+     let lon=sessionStorage.getItem("lon");       
     
     let map = L.map('map').setView([lat, lon],8);
     
@@ -12,5 +12,9 @@ setTimeout(function(){
     }).addTo(map);
     
     let marker = L.marker([lat,lon]).addTo(map);
-
+    
+    function onMapClick(e) {
+        let coords = [e.latlng.lat,e.latlng.lng]
+    }    
+    map.on('click', onMapClick);
 },delay)

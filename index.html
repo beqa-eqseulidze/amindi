@@ -10,32 +10,27 @@
         <link rel="stylesheet" href="./style/style.css">
          <!-- leafelet css -->
          <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
-        
-         <!-- leafelet -->
+        <!-- axios  -->
+        <script defer src="./node_modules/axios/dist/axios.min.js"></script>
+         <!-- leafelet js-->
          <script defer src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
          
          <script defer type="module"  src="./js/main.js"></script>
-         <script  defer type="module" src="./js/map.js"></script>
+         
+         <script  defer src="./js/map.js"></script>
          
         <title>amindi</title>
 </head>
-<body>
+<body>   
 <div class="container-1">
     <div class="navbar">        
             <img src="./img/header-logo.png" alt="">        
-        <div class="choose-lan">
-            <span class="arrow"></span>
-            <p>
-                <img src="./img/geo.png" alt="">
-                     <span >ქართული</span>
-                    </p>
-            <p>
-                <img src="./img/eng.png" alt="">
-                    <span>ENGLISH</span>
-            </p>           
-        </div>
+        <select class="choose-lan" name="language">
+            <option value="GE"> 🇬🇪 ქართული</option>
+             <option value="GB">🇬🇧 ENGLISH</option>
+        </select>         
         <div class="burger">
-            <button>
+            <button class="burger-btn" >
                 <span class="first"></span> 
                 <span class="second"></span>    
                 <span class="therd"></span>    
@@ -43,53 +38,64 @@
         </div>
 
         <div class="menu">
-            <p>ამინდის პროგნოზი</p>
-            <p>სიახლეები</p>
-            <p>ჯანმრთელობა</p>
-            <p>რადიო</p>
-            <p class="info">
+            <p> <a href=""> ამინდის პროგნოზი</a></p>
+            <p> <a href=""> სიახლეები</a></p>
+            <p> <a href=""> ჯანმრთელობა</a></p>
+            <p> <a href=""> რადიო</a></p>
+            <p class="info"> <a href=""> 
              სასარგებლო ინფორმაცია
-            </p>
-            <p>რეკლამა</p>
+            </a></p>
+            <p> <a href=""> რეკლამა</a></p>
             
             <ul class="list">
-              <li>მსოფლიო დრო</li>
-              <li>საქართველოს დღესასწაულები</li>
-              <li>ვალუტა</li>
-              <li>ჰოროსკოპი</li>      
+              <li> <a href=""> მსოფლიო დრო</a></li>
+              <li> <a href=""> საქართველოს დღესასწაულები</a></li>
+              <li> <a href=""> ვალუტა</a></li>
+              <li> <a href=""> ჰოროსკოპი</a></li>      
             </ul>
         </div>
     </div>
         <script>
             // burger menue open and close
             void (function(){
-               let btn=document.querySelector('.burger button');
+               let btn=document.querySelector('.burger-btn');
                let l=document.querySelector('.menu')
                let v=false
                btn.addEventListener('click',()=>{
                     v=!v
-                   v? l.style.height=220+'px':l.style.height=0+'px'
+                    v? l.style.height=220+'px':l.style.height=0+'px'
+                    v? setTimeout(()=>l.style.overflow='visible',500):l.style.overflow='hidden'
+                    
+                    
                 })
-            })()
-        </script>
+                document.addEventListener('click',(e)=>{            
+                  if(!e.target.closest('.burger-btn')){
+                  v=false;
+                  l.style=`height:0px;
+                            overflow:hidden;`
+                            
+                        }
+                      })
+                                 
+                  })()
+         </script>
+                 
 </div>   
 <!-- top reklam section -->
 <div class="container-2">
     <div class="banner-top">
-
-        <div id="parent" style="position: relative; width:100%; height:100%;">
+        <div id="parent" style="position: relative; width:100%; height:100%">
             <style>
-                #reklama{
+                #rekla{
                      position: absolute;
                      transform:translateY(-50%); 
                      top:50%;
                      display: flex;                    
-                     font-size: 35px;
+                     font-size: 30px;
                      color:white;  
                      z-index:100;                  
-
                 }
-                #reklama .text{
+                #rekla .text{
                     min-width: 300px;
                     height: 35px;                    
                     display: block;
@@ -97,10 +103,10 @@
                     margin-right: 100px;
                 }
             </style>
-            <div id="reklama"></div>
-                     
+            <div id="rekla" ></div>
+                 
               <script>
-        const reklama=document.querySelector('#reklama')
+        const reklama=document.querySelector('#rekla')
         function createElm(n){
             for (let i=0; i<n;i++){               
                 reklama.innerHTML+=`<p class='text'>თქვენი რეკლამა</p>`          
@@ -109,19 +115,19 @@
         createElm(5)
         let start=0;
         let color=(Math.ceil(Math.random()))*200+50;
-        // //  muving text code 
-        // setInterval(()=>{           
-        //     if(start>=-450){
-        //         start-=0.5
-        //         reklama.style.left=start+'px'                
-        //     }else start=0;},2)
+    //    //  muving text code 
+    //     setInterval(()=>{           
+    //         if(start>=-450){
+    //             start-=0.5
+    //             reklama.style.left=start+'px'                
+    //         }else start=0;},2)
 
       setInterval(() => {
         reklama.style.color=`rgba(${Math.floor(Math.random()*200)+50},${Math.floor(Math.random()*200)+50},${Math.floor(Math.random()*200)+50})`
       }, 1000);           
     
     </script> 
-        </div>
+        </div>       
     </div> 
    
 </div>
@@ -129,24 +135,24 @@
 
 <!-- start cotainer-3 -->
 <div class="container-3">    
-    <div class="choose-sity">
+    <div class="choose-city">
         აირჩიე ქალაქი
      <span class="arrow"></span>
+    </div>
+    <div class="city-list">
+        <span class="list"> <span>Tbilisi</span><span>21</span> </span>
+        <span class="list"> <span>Tbilisi</span><span>21</span> </span>
+        <span class="list"> <span>Tbilisi</span><span>21</span> </span>
+        <span class="list"> <span>Tbilisi</span><span>21</span> </span>
+        <span class="list"> <span>Tbilisi</span><span>21</span> </span>
+        <span class="list"> <span>Tbilisi</span><span>21</span> </span>
+        <span class="list"> <span>Tbilisi</span><span>21</span> </span>
     </div>
     <div class="search-city">
         <input class="search-input"  type="text" name="" id="search-input" placeholder="მოძებნე ქალაქი" >
         <img id="search" src="./img/search.png" alt="">
     </div>
-    <div class="sity-list">
-        <span class="list"> <span>Tbilisi</span><span>21</span> </span>
-        <span class="list"> <span>Tbilisi</span><span>21</span> </span>
-        <span class="list"> <span>Tbilisi</span><span>21</span> </span>
-        <span class="list"> <span>Tbilisi</span><span>21</span> </span>
-        <span class="list"> <span>Tbilisi</span><span>21</span> </span>
-        <span class="list"> <span>Tbilisi</span><span>21</span> </span>
-        <span class="list"> <span>Tbilisi</span><span>21</span> </span>
-    </div>
-        
+    
         
 </div>
 <!-- end container-3 -->
@@ -155,38 +161,38 @@
 <!-- start container-4 -->
 <div class="container-4">
     <div class="curent-forcast">
-        <h2>თბილისი</h2>
+        <!-- <h2>თბილისი</h2>
         <p class="date"> <span>კვირა,</span> <span>20 ნოემბერი</span></p>
         <p>15:52:42</p>
         <div class="forcast">
             <img src="./img/sun.png"  alt="sun">
             <p class="degree">21<sup>o</sup> </p>
         </div>
-        <p class="description">მზიანი</p>
+        <p class="description">მზიანი</p> -->
     </div>
     <div class="next-hours-focast">
         <h3>ამინდი საათების მიხედვით</h3>
-        <ul>
-             <li> 16 საათი <img src="./img/sun.png" width="32" height="32" alt="sun" ><span>21<sup>o</sup></span> </li>
+        <ul class="hourly-focast-list">
+             <!-- <li> 16 საათი <img src="./img/sun.png" width="32" height="32" alt="sun" ><span>21<sup>o</sup></span> </li>
              <li> 17 საათი <img src="./img/sun.png" width="32" height="32" alt="sun" > <span>21<sup>o</sup></span> </li>
              <li> 18 საათი <img src="./img/sun.png" width="32" height="32" alt="sun" > <span>21<sup>o</sup></span> </li>
              <li> 19 საათი <img src="./img/sun.png" width="32" height="32" alt="sun" > <span>21<sup>o</sup></span> </li>
-             <li> 20 საათი <img src="./img/sun.png" width="32" height="32" alt="sun" > <span>21<sup>o</sup></span> </li>
+             <li> 20 საათი <img src="./img/sun.png" width="32" height="32" alt="sun" > <span>21<sup>o</sup></span> </li> -->
         </ul>
-        <button>იხილეთ სრულად</button>
+        <button class="see-all">იხილეთ სრულად</button>
     </div>
     <div class="wind-focast">
         <div class="animation-fun" >
             <div class="first-fun"></div>
             <div class="last-fun"></div>            
         </div>
-        <div>
+        <!-- <div>
             <h3>ქარი და წნევა</h3>
             <p>ქარის სიჩქარე:</p>
             <p>28 kbh, NW</p>
             <p>წნევა:</p>
             <p>102.30 kpa</p>
-        </div>        
+        </div>         -->
     </div>
     <div class="additional-info">
         <p>ტემპერატურის მგრძნომბელობა: <span>22<sup>o</sup> </span></p>
@@ -264,10 +270,21 @@
                 </div>
     
             </div>
-    
+            
+        </div>
+        <div class="five-days-hurly-weather" >
+            <p class="hurly">ამინდი ხუთი დღის საათობრივი</p>
+            <p class="daily active">ამინდი დღეების მიხედვით</p>
         </div>
         <p>აირჩიე რუკაზე</p>
         <div id="map"></div>
+        <div class="video">
+            <video width="100%" autoplay controls muted>
+                <source src="./img/droni-2-291539.mp4" type="video/mp4">
+                <source src="./img/droni-2-29153.ogg" type="video/ogg">
+              Your browser does not support the video tag.
+              </video>
+        </div>
     </div>
     
 </div>

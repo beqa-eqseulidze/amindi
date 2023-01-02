@@ -13,13 +13,49 @@ ul{
 }
 a{
     text-decoration: none;
+    color:inherit;
+    font-size: inherit;
 }
 body{
    background-image: url(../img/bodybackground2.jpg);
    background-repeat: no-repeat;
+   background-attachment: fixed;
    background-size: cover;
    font-family:geofont;  
-  
+   font-size: 15px;
+   
+}
+
+@media only screen and (min-width: 768px) {
+    body{
+        font-size:12px;
+    }
+}
+@media only screen and (min-width: 990px) {
+    body{
+        font-size:13.5px;
+    }
+}
+@media only screen and (min-width: 1290px) {
+    body{
+        font-size:17px;
+    }
+}
+
+h3{
+    font-size:1em;
+}
+h2{
+    font-size:2em !important;
+}
+p{
+    font-size: 1em !important;
+}
+option{
+    font-size: 1em !important;
+}
+button{
+    font-size: 1em;
 }
 
 @import "container-1";
